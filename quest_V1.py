@@ -41,6 +41,10 @@ show_popup = False
 popup_rect = pygame.Rect(300,100,100,40)
 close_button_rect = pygame.Rect(300,100,100,40)
 
+# diferencia entre rect y Rect: el rect es un objeto que tiene atributos como x, y, width, height, etc.
+# El Rect es una clase que se utiliza para crear objetos rectangulares con argumentos como posicion (tuplas: topleft, midtop, etc.) y tamaño (width, height).
+# El Rect también tiene métodos para detectar colisiones, mover el rectángulo, etc.
+
 def draw_popup():
     pygame.draw.rect(screen, col_azul_claro, popup_rect)
     pygame.draw.rect(screen, col_cafe, popup_rect, 4) # borde
