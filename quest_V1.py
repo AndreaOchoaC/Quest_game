@@ -38,7 +38,7 @@ speed = 10 # velocidad de mov.
 
 # Ventana emergente (popup)
 show_popup = False
-popup_rect = pygame.Rect(300,100,100,40)
+popup_rect = pygame.Rect(200,100,300,140)
 close_button_rect = pygame.Rect(300,100,100,40)
 
 # diferencia entre rect y Rect: el rect es un objeto que tiene atributos como x, y, width, height, etc.
@@ -51,7 +51,9 @@ def draw_popup():
 
     # texto de la ventana
     text_sup = font.render("Ventana emergente", True, col_azul_os)
-    text_rect = text_sup.get_rect(center=(popup_rect.centerx, popup_rect.centery -30))
+    text_rect = text_sup.get_rect(center=(popup_rect.centerx, popup_rect.centery))
+
+    screen.blit(text_sup, text_rect)
 
     # cerrar ventana
     pygame.draw.rect(screen, col_vino, close_button_rect)
@@ -95,11 +97,10 @@ while running:
             if event.button == 1: # click izquierdo
                 if show_popup and close_button_rect.collidepoint(mouse_pos):
                     show_popup = False
-                
-    if show_popup:
-        draw_popup()
          
     pygame.draw.rect(screen, "#401D04", [x, y, 55,55], 0)
+    if show_popup:
+        draw_popup()
     
     pygame.display.update()
     clock.tick(60) # frame rate 60 segundos
